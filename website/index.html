@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
+  <meta name="description" content="A fast, minimal website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-dvh bg-gray-50 text-gray-800">
+  <header class="sticky top-0 z-10 bg-white/70 backdrop-blur border-b">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-semibold text-lg">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded bg-indigo-600 text-white">⚡</span>
+        <span>My Website</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-indigo-600" href="#features">Features</a>
+        <a class="hover:text-indigo-600" href="#about">About</a>
+        <a class="hover:text-indigo-600" href="#contact">Contact</a>
+      </nav>
+      <button id="menuButton" class="md:hidden inline-flex items-center justify-center h-9 w-9 rounded hover:bg-gray-100">
+        <span class="sr-only">Toggle menu</span>
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-2 flex flex-col gap-2 text-sm">
+        <a class="py-2 hover:text-indigo-600" href="#features">Features</a>
+        <a class="py-2 hover:text-indigo-600" href="#about">About</a>
+        <a class="py-2 hover:text-indigo-600" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-4xl/tight sm:text-5xl/tight font-extrabold tracking-tight">
+              Build a clean, fast website in minutes
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+              Lightweight HTML + Tailwind via CDN. No build step required.
+            </p>
+            <div class="mt-6 flex gap-3">
+              <a href="#features" class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-white shadow hover:bg-indigo-500">
+                Get Started
+              </a>
+              <a href="#about" class="inline-flex items-center gap-2 rounded-md border px-4 py-2 hover:bg-gray-50">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-tr from-indigo-200/40 via-transparent to-emerald-200/40 blur-2xl"></div>
+            <div class="relative rounded-xl border bg-white shadow-sm p-6">
+              <div class="grid grid-cols-3 gap-3 text-center">
+                <div class="rounded-lg border p-4">
+                  <div class="text-2xl font-bold">0.2s</div>
+                  <div class="text-xs text-gray-500">First paint</div>
+                </div>
+                <div class="rounded-lg border p-4">
+                  <div class="text-2xl font-bold">100</div>
+                  <div class="text-xs text-gray-500">Lighthouse</div>
+                </div>
+                <div class="rounded-lg border p-4">
+                  <div class="text-2xl font-bold">0 deps</div>
+                  <div class="text-xs text-gray-500">Install time</div>
+                </div>
+              </div>
+              <div class="mt-4 text-xs text-gray-500">Illustrative metrics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-semibold">Features</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-lg border p-5">
+          <div class="font-medium">Fast Setup</div>
+          <p class="mt-2 text-sm text-gray-600">Drop-in CDN for Tailwind. Edit HTML and go.</p>
+        </div>
+        <div class="rounded-lg border p-5">
+          <div class="font-medium">Responsive</div>
+          <p class="mt-2 text-sm text-gray-600">Mobile-first styles right out of the box.</p>
+        </div>
+        <div class="rounded-lg border p-5">
+          <div class="font-medium">Accessible</div>
+          <p class="mt-2 text-sm text-gray-600">Semantic HTML and sensible defaults.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-semibold">About</h2>
+      <p class="mt-4 max-w-2xl text-gray-700">
+        This starter is intentionally minimal. You can later upgrade to a full framework
+        if you need routing, SSR, or a CMS. For small projects and landing pages,
+        static HTML is more than enough.
+      </p>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-semibold">Contact</h2>
+      <form id="contactForm" class="mt-6 grid gap-4 max-w-md">
+        <input class="rounded-md border px-3 py-2" placeholder="Name" required />
+        <input type="email" class="rounded-md border px-3 py-2" placeholder="Email" required />
+        <textarea class="rounded-md border px-3 py-2" placeholder="Message" rows="4" required></textarea>
+        <button class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500">Send</button>
+        <p id="formStatus" class="text-sm text-gray-600"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="border-t">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-gray-600">
+      <p>&copy; <span id="year"></span> My Website. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
