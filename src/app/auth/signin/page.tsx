@@ -16,8 +16,6 @@ export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
-  const params = useParams()
-  const locale = params.locale as string
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -40,7 +38,7 @@ export default function SignInPage() {
       }
 
       // Redirect to dashboard
-      router.push(`/${locale}/dashboard`)
+      router.push('/dashboard')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Sign in failed')
     } finally {
@@ -64,7 +62,7 @@ export default function SignInPage() {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
-            <Link href={`/${locale}/auth/signup`} className="font-medium text-ge-600 hover:text-ge-500">
+            <Link href="/auth/signup" className="font-medium text-ge-600 hover:text-ge-500">
               create a new account
             </Link>
           </p>

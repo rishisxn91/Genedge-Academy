@@ -68,6 +68,8 @@ export async function POST(request: NextRequest) {
 
     return response
   } catch (error) {
+    console.error('Signup error:', error)
+    
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: 'Validation failed', details: error.errors },
@@ -75,9 +77,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    console.error('Signup error:', error)
+    // Check for database connection errors
+    if (error instanceof Error) {
+      if (error.message.includes('connect') || error.message.includes('database')) {
+        return NextResponse.json(
+          { error: 'Database connection failed. Please try again.' },
+          { status: 503 }
+        )
+      }
+    }
+
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error. Please try again.' },
       { status: 500 }
     )
   }

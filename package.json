@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "postinstall": "prisma generate && node scripts/write-assets.mjs",
+    "postinstall": "prisma generate && node scripts/write-assets.mjs && node scripts/setup-db.mjs",
     "vercel-build": "prisma migrate deploy && next build",
     "build": "next build",
     "start": "next start",

@@ -19,8 +19,6 @@ export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
-  const params = useParams()
-  const locale = params.locale as string
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,11 +48,16 @@ export default function SignUpPage() {
       const data = await response.json()
 
       if (!response.ok) {
+        if (data.details) {
+          // Handle validation errors
+          const validationErrors = data.details.map((err: any) => err.message).join(', ')
+          throw new Error(validationErrors)
+        }
         throw new Error(data.error || 'Sign up failed')
       }
 
       // Redirect to dashboard
-      router.push(`/${locale}/dashboard`)
+      router.push('/dashboard')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Sign up failed')
     } finally {
@@ -78,7 +81,7 @@ export default function SignUpPage() {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
-            <Link href={`/${locale}/auth/signin`} className="font-medium text-ge-600 hover:text-ge-500">
+            <Link href="/auth/signin" className="font-medium text-ge-600 hover:text-ge-500">
               sign in to your existing account
             </Link>
           </p>
