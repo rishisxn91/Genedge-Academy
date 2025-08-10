@@ -3,8 +3,10 @@ export const dynamic = 'force-dynamic'
 
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/db'
-import { verifyPassword, createJWT } from '@/lib/auth'
+import { memoryStore } from '@/lib/memory-store'
+import { createJWT } from '@/lib/auth'
 
 const signinSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -16,21 +18,50 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email, password } = signinSchema.parse(body)
 
-    // Find user by email
-    const user = await prisma.user.findUnique({
-      where: { email }
-    })
+    let user
+    let isValidPassword = false
 
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Invalid email or password' },
-        { status: 401 }
-      )
+    // Try database first, fallback to memory store
+    try {
+      // Find user by email in database
+      const dbUser = await prisma.user.findUnique({
+        where: { email }
+      })
+
+      if (dbUser) {
+        // Verify password
+        isValidPassword = await bcrypt.compare(password, dbUser.password)
+        if (isValidPassword) {
+          user = {
+            id: dbUser.id,
+            name: dbUser.name,
+            email: dbUser.email,
+            role: dbUser.role,
+            createdAt: dbUser.createdAt,
+          }
+        }
+      }
+    } catch (dbError) {
+      console.log('Database error, trying memory store:', dbError)
     }
 
-    // Verify password
-    const isValidPassword = await verifyPassword(password, user.password)
-    if (!isValidPassword) {
+    // If database failed or user not found, try memory store
+    if (!user) {
+      try {
+        const memoryUser = await memoryStore.findUserByEmail(email)
+        if (memoryUser) {
+          isValidPassword = await memoryStore.verifyPassword(email, password)
+          if (isValidPassword) {
+            const { password: _, ...userWithoutPassword } = memoryUser
+            user = userWithoutPassword
+          }
+        }
+      } catch (memoryError) {
+        console.log('Memory store error:', memoryError)
+      }
+    }
+
+    if (!user || !isValidPassword) {
       return NextResponse.json(
         { error: 'Invalid email or password' },
         { status: 401 }
@@ -46,13 +77,7 @@ export async function POST(request: NextRequest) {
 
     // Set cookie
     const response = NextResponse.json({
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        createdAt: user.createdAt,
-      },
+      user,
       message: 'Login successful'
     })
 

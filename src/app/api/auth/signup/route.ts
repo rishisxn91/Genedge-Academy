@@ -3,8 +3,10 @@ export const dynamic = 'force-dynamic'
 
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/db'
-import { hashPassword, createJWT } from '@/lib/auth'
+import { memoryStore } from '@/lib/memory-store'
+import { createJWT } from '@/lib/auth'
 
 const signupSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -17,34 +19,51 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { name, email, password } = signupSchema.parse(body)
 
-    // Check if user already exists
-    const existingUser = await prisma.user.findUnique({
-      where: { email }
-    })
+    let user
 
-    if (existingUser) {
-      return NextResponse.json(
-        { error: 'User with this email already exists' },
-        { status: 400 }
-      )
-    }
+    // Try database first, fallback to memory store
+    try {
+      // Check if user already exists in database
+      const existingUser = await prisma.user.findUnique({
+        where: { email }
+      })
 
-    // Hash password and create user
-    const hashedPassword = await hashPassword(password)
-    const user = await prisma.user.create({
-      data: {
-        name,
-        email,
-        password: hashedPassword,
-      },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        role: true,
-        createdAt: true,
+      if (existingUser) {
+        return NextResponse.json(
+          { error: 'User with this email already exists' },
+          { status: 400 }
+        )
       }
-    })
+
+      // Create user in database
+      const hashedPassword = await bcrypt.hash(password, 12)
+      user = await prisma.user.create({
+        data: {
+          name,
+          email,
+          password: hashedPassword,
+        },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          createdAt: true,
+        }
+      })
+    } catch (dbError) {
+      console.log('Database error, using memory store:', dbError)
+      
+      // Fallback to memory store
+      try {
+        user = await memoryStore.createUser({ name, email, password })
+      } catch (memoryError) {
+        return NextResponse.json(
+          { error: memoryError instanceof Error ? memoryError.message : 'User creation failed' },
+          { status: 400 }
+        )
+      }
+    }
 
     // Create JWT token
     const token = await createJWT({
