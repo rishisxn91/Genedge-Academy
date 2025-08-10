@@ -1,10 +1,11 @@
-const withNextIntl = require('next-intl/plugin')()
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: ['localhost', 'www.genedgeacademy.com', 'genedgeacademy.com'],
   },
+  experimental: {
+    serverComponentsExternalPackages: ['@prisma/client']
+  }
 }
 
-module.exports = withNextIntl(nextConfig)
+module.exports = nextConfig

@@ -12,6 +12,8 @@ export default getRequestConfig(async ({ locale }) => {
   if (!locales.includes(locale as any)) notFound()
 
   return {
-    messages: (await import(`./locales/${locale}/common.json`)).default
+    messages: (await import(`./locales/${locale}/common.json`)).default,
+    locale: locale as string,
+    timeZone: 'Asia/Kolkata'
   }
 })

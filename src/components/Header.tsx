@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import { Menu, X, User, BookOpen, GraduationCap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useTranslations, useLocale } from 'next-intl'
-import LanguageSelector from './LanguageSelector'
 
 interface User {
   id: string
@@ -21,33 +20,8 @@ export default function Header() {
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
   
-  // Get locale with error handling
-  let locale = 'en'
-  try {
-    locale = useLocale()
-  } catch (error) {
-    // Fallback to default locale
-    locale = 'en'
-  }
-  
-  // Use translations with error handling
-  let t: any
-  try {
-    t = useTranslations('navigation')
-  } catch (error) {
-    // Fallback translations if context is not available
-    t = (key: string) => {
-      const fallbacks: { [key: string]: string } = {
-        home: 'Home',
-        catalog: 'Catalog',
-        pricing: 'Pricing',
-        faq: 'FAQ',
-        signIn: 'Sign In',
-        getStarted: 'Get Started'
-      }
-      return fallbacks[key] || key
-    }
-  }
+    const locale = useLocale()
+  const t = useTranslations('navigation')
 
   useEffect(() => {
     checkAuth()
@@ -116,10 +90,9 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Auth Section */}
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageSelector />
-            {isLoading ? (
+                            {/* Auth Section */}
+                  <div className="hidden md:flex items-center space-x-4">
+                    {isLoading ? (
               <div className="w-20 h-8 bg-gray-200 rounded animate-pulse" />
             ) : user ? (
               <div className="flex items-center space-x-4">
