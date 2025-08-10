@@ -1,1 +1,1 @@
-# Genedge-Academy
+# GenEdge Academy
