@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: smooth fonts */
+:root { color-scheme: light; }
+html, body { height: 100%; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section {
+    @apply py-16 sm:py-24;
+  }
+  
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900;
+  }
+  
+  .heading-2 {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900;
+  }
+  
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-semibold text-gray-900;
+  }
+  
+  .text-body {
+    @apply text-lg text-gray-600 leading-relaxed;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-card p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-ge-500 focus:border-transparent transition-colors duration-200;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+  
+  .error-text {
+    @apply text-red-600 text-sm mt-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
