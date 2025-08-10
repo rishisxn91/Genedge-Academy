@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X, User, BookOpen, GraduationCap } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useTranslations, useLocale } from 'next-intl'
+import LanguageSelector from './LanguageSelector'
 
 interface User {
   id: string
@@ -18,6 +20,34 @@ export default function Header() {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
+  
+  // Get locale with error handling
+  let locale = 'en'
+  try {
+    locale = useLocale()
+  } catch (error) {
+    // Fallback to default locale
+    locale = 'en'
+  }
+  
+  // Use translations with error handling
+  let t: any
+  try {
+    t = useTranslations('navigation')
+  } catch (error) {
+    // Fallback translations if context is not available
+    t = (key: string) => {
+      const fallbacks: { [key: string]: string } = {
+        home: 'Home',
+        catalog: 'Catalog',
+        pricing: 'Pricing',
+        faq: 'FAQ',
+        signIn: 'Sign In',
+        getStarted: 'Get Started'
+      }
+      return fallbacks[key] || key
+    }
+  }
 
   useEffect(() => {
     checkAuth()
@@ -48,10 +78,10 @@ export default function Header() {
   }
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Catalog', href: '/catalog' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: t('home'), href: `/${locale}` },
+    { name: t('catalog'), href: `/${locale}/catalog` },
+    { name: t('pricing'), href: `/${locale}/pricing` },
+    { name: t('faq'), href: `/${locale}/#faq` },
   ]
 
   const isActive = (href: string) => pathname === href
@@ -61,7 +91,7 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href={`/${locale}`} className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-ge-600 to-ge-700 rounded-lg flex items-center justify-center">
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
@@ -88,20 +118,21 @@ export default function Header() {
 
           {/* Auth Section */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSelector />
             {isLoading ? (
               <div className="w-20 h-8 bg-gray-200 rounded animate-pulse" />
             ) : user ? (
               <div className="flex items-center space-x-4">
                 {user.role === 'ADMIN' && (
                   <Link
-                    href="/admin"
+                    href={`/${locale}/admin`}
                     className="btn-outline text-sm py-2 px-4"
                   >
                     Admin
                   </Link>
                 )}
                 <Link
-                  href="/dashboard"
+                  href={`/${locale}/dashboard`}
                   className="btn-primary text-sm py-2 px-4"
                 >
                   Dashboard
@@ -115,11 +146,11 @@ export default function Header() {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link href="/auth/signin" className="text-gray-600 hover:text-gray-900 text-sm font-medium">
-                  Sign In
+                <Link href={`/${locale}/auth/signin`} className="text-gray-600 hover:text-gray-900 text-sm font-medium">
+                  {t('signIn')}
                 </Link>
-                <Link href="/auth/signup" className="btn-primary text-sm py-2 px-4">
-                  Get Started
+                <Link href={`/${locale}/auth/signup`} className="btn-primary text-sm py-2 px-4">
+                  {t('getStarted')}
                 </Link>
               </div>
             )}
@@ -165,7 +196,7 @@ export default function Header() {
                 <div className="flex flex-col space-y-3">
                   {user.role === 'ADMIN' && (
                     <Link
-                      href="/admin"
+                      href={`/${locale}/admin`}
                       className="btn-outline text-sm py-2 px-4 text-center"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -173,7 +204,7 @@ export default function Header() {
                     </Link>
                   )}
                   <Link
-                    href="/dashboard"
+                    href={`/${locale}/dashboard`}
                     className="btn-primary text-sm py-2 px-4 text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -189,18 +220,18 @@ export default function Header() {
               ) : (
                 <div className="flex flex-col space-y-3">
                   <Link
-                    href="/auth/signin"
+                    href={`/${locale}/auth/signin`}
                     className="text-gray-600 hover:text-gray-900 text-sm font-medium text-center py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Sign In
+                    {t('signIn')}
                   </Link>
                   <Link
-                    href="/auth/signup"
+                    href={`/${locale}/auth/signup`}
                     className="btn-primary text-sm py-2 px-4 text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Get Started
+                    {t('getStarted')}
                   </Link>
                 </div>
               )}

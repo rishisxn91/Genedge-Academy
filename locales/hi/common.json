@@ -1,0 +1,101 @@
+{
+  "navigation": {
+    "home": "होम",
+    "catalog": "कैटलॉग",
+    "pricing": "मूल्य निर्धारण",
+    "faq": "सामान्य प्रश्न",
+    "signIn": "साइन इन",
+    "getStarted": "शुरू करें"
+  },
+  "hero": {
+    "title": "भारत के प्रमुख लर्निंग प्लेटफॉर्म के साथ AI कौशल में महारत हासिल करें",
+    "subtitle": "उद्योग विशेषज्ञों से सीखें, वास्तविक दुनिया के प्रोजेक्ट बनाएं, और कृत्रिम बुद्धिमत्ता में अपना करियर आगे बढ़ाएं",
+    "browseCourses": "कोर्स ब्राउज़ करें",
+    "viewPricing": "मूल्य देखें"
+  },
+  "courses": {
+    "title": "विशेष कोर्स",
+    "subtitle": "AI और मशीन लर्निंग में महारत हासिल करने में आपकी मदद के लिए चुने गए कोर्स",
+    "enrollNow": "अभी नामांकन करें",
+    "learnMore": "और जानें",
+    "freePreview": "मुफ्त पूर्वावलोकन",
+    "duration": "अवधि",
+    "lectures": "व्याख्यान",
+    "level": "स्तर",
+    "beginner": "शुरुआती",
+    "intermediate": "मध्यम",
+    "advanced": "उन्नत"
+  },
+  "pricing": {
+    "title": "अपनी योजना चुनें",
+    "subtitle": "आपकी सीखने की यात्रा के अनुरूप लचीली मूल्य निर्धारण विकल्प",
+    "monthly": "मासिक",
+    "yearly": "वार्षिक",
+    "basic": "बुनियादी",
+    "pro": "प्रो",
+    "enterprise": "एंटरप्राइज",
+    "perMonth": "प्रति माह",
+    "perYear": "प्रति वर्ष",
+    "features": {
+      "unlimitedCourses": "असीमित कोर्स",
+      "certificates": "प्रमाणपत्र",
+      "liveSessions": "लाइव सत्र",
+      "mentorSupport": "मेंटर सहायता",
+      "projects": "वास्तविक दुनिया के प्रोजेक्ट",
+      "jobAssistance": "नौकरी सहायता"
+    }
+  },
+  "footer": {
+    "description": "भारत का प्रमुख AI लर्निंग प्लेटफॉर्म। अपनी गति से AI कौशल में महारत हासिल करें और डिजिटल युग में नए अवसरों को अनलॉक करें।",
+    "quickLinks": "त्वरित लिंक",
+    "support": "सहायता",
+    "legal": "कानूनी",
+    "privacy": "गोपनीयता नीति",
+    "terms": "सेवा की शर्तें",
+    "refund": "धनवापसी नीति"
+  },
+  "auth": {
+    "signIn": "साइन इन",
+    "signUp": "साइन अप",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "name": "पूरा नाम",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "dontHaveAccount": "खाता नहीं है?",
+    "alreadyHaveAccount": "पहले से ही खाता है?",
+    "signInWithGoogle": "Google के साथ साइन इन करें",
+    "signUpWithGoogle": "Google के साथ साइन अप करें"
+  },
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "welcome": "वापसी पर स्वागत है",
+    "myCourses": "मेरे कोर्स",
+    "progress": "प्रगति",
+    "certificates": "प्रमाणपत्र",
+    "settings": "सेटिंग्स"
+  },
+  "admin": {
+    "dashboard": "एडमिन डैशबोर्ड",
+    "analytics": "विश्लेषण",
+    "courses": "कोर्स",
+    "users": "उपयोगकर्ता",
+    "whatsapp": "व्हाट्सएप",
+    "createCourse": "कोर्स बनाएं",
+    "manageUsers": "उपयोगकर्ताओं का प्रबंधन"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "एक त्रुटि हुई",
+    "success": "सफलता",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "view": "देखें",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "sort": "क्रमबद्ध करें",
+    "language": "भाषा"
+  }
+}

@@ -15,7 +15,8 @@ import {
   Calendar,
   Shield,
   AlertTriangle,
-  BarChart3
+  BarChart3,
+  MessageSquare
 } from 'lucide-react'
 import { formatPrice, formatDate } from '@/lib/utils'
 
@@ -257,6 +258,13 @@ export default function AdminPage() {
             >
               <Users className="w-4 h-4" />
               <span>Users</span>
+            </Link>
+            <Link
+              href="/admin/whatsapp"
+              className="btn-outline flex items-center space-x-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp</span>
             </Link>
             <Link
               href="/admin/courses/new"

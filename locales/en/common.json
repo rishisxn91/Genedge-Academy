@@ -1,0 +1,101 @@
+{
+  "navigation": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Master AI Skills with India's Premier Learning Platform",
+    "subtitle": "Learn from industry experts, build real-world projects, and advance your career in artificial intelligence",
+    "browseCourses": "Browse Courses",
+    "viewPricing": "View Pricing"
+  },
+  "courses": {
+    "title": "Featured Courses",
+    "subtitle": "Hand-picked courses to help you master AI and machine learning",
+    "enrollNow": "Enroll Now",
+    "learnMore": "Learn More",
+    "freePreview": "Free Preview",
+    "duration": "Duration",
+    "lectures": "Lectures",
+    "level": "Level",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Flexible pricing options to fit your learning journey",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "basic": "Basic",
+    "pro": "Pro",
+    "enterprise": "Enterprise",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "features": {
+      "unlimitedCourses": "Unlimited courses",
+      "certificates": "Certificates",
+      "liveSessions": "Live sessions",
+      "mentorSupport": "Mentor support",
+      "projects": "Real-world projects",
+      "jobAssistance": "Job assistance"
+    }
+  },
+  "footer": {
+    "description": "India's premier AI learning platform. Master AI skills at your own pace and unlock new opportunities in the digital age.",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "refund": "Refund Policy"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInWithGoogle": "Sign in with Google",
+    "signUpWithGoogle": "Sign up with Google"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "myCourses": "My Courses",
+    "progress": "Progress",
+    "certificates": "Certificates",
+    "settings": "Settings"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "analytics": "Analytics",
+    "courses": "Courses",
+    "users": "Users",
+    "whatsapp": "WhatsApp",
+    "createCourse": "Create Course",
+    "manageUsers": "Manage Users"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "language": "Language"
+  }
+}
