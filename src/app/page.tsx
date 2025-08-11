@@ -139,22 +139,149 @@ export default function Home() {
       </section>
 
       {/* LEARNING PATH */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Your Learning Path</h2>
-        <ol className="mt-6 grid gap-4 md:grid-cols-4">
-          {[
-            { step: "1", title: "Foundation", text: "AI basics, prompt skills, practical tools." },
-            { step: "2", title: "Specialize", text: "Pick a track: productivity, business, content, or dev." },
-            { step: "3", title: "Apply", text: "Build real projects you can show employers or clients." },
-            { step: "4", title: "Advance", text: "Earn a certificate and level up career or business." },
-          ].map((s) => (
-            <li key={s.step} className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200">
-              <div className="text-xs sm:text-sm font-bold text-indigo-600">Step {s.step}</div>
-              <div className="mt-1 text-base sm:text-lg font-semibold">{s.title}</div>
-              <p className="mt-1 text-sm text-gray-600">{s.text}</p>
-            </li>
-          ))}
-        </ol>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Your Journey to AI Mastery
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Follow our proven 4-step learning path that has helped thousands of learners transform their careers with AI
+          </p>
+        </div>
+
+        <div className="relative">
+          {/* Connection Line */}
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-ge-300 to-transparent transform -translate-y-1/2 z-0"></div>
+          
+          <ol className="grid gap-6 sm:gap-8 md:grid-cols-4 relative z-10">
+            {[
+              {
+                step: "1",
+                title: "Foundation",
+                subtitle: "Build Your Base",
+                text: "Master AI fundamentals, prompt engineering, and essential tools. Get comfortable with ChatGPT, Claude, and other AI platforms.",
+                icon: "🎯",
+                color: "from-blue-500 to-blue-600",
+                bgColor: "bg-blue-50",
+                borderColor: "border-blue-200"
+              },
+              {
+                step: "2",
+                title: "Specialize",
+                subtitle: "Choose Your Path",
+                text: "Pick your specialization: AI for Business, Content Creation, Productivity, or Development. Deep dive into your chosen domain.",
+                icon: "🚀",
+                color: "from-purple-500 to-purple-600",
+                bgColor: "bg-purple-50",
+                borderColor: "border-purple-200"
+              },
+              {
+                step: "3",
+                title: "Apply",
+                subtitle: "Build & Deploy",
+                text: "Create real-world projects and solutions. Build your portfolio with practical applications that showcase your AI skills.",
+                icon: "⚡",
+                color: "from-green-500 to-green-600",
+                bgColor: "bg-green-50",
+                borderColor: "border-green-200"
+              },
+              {
+                step: "4",
+                title: "Advance",
+                subtitle: "Scale & Earn",
+                text: "Earn your certificate, land opportunities, and scale your AI expertise. Start earning from your new skills immediately.",
+                icon: "🏆",
+                color: "from-orange-500 to-orange-600",
+                bgColor: "bg-orange-50",
+                borderColor: "border-orange-200"
+              }
+            ].map((s, index) => (
+              <li key={s.step} className="relative group">
+                {/* Step Number Badge */}
+                <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-r ${s.color} text-white flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {s.step}
+                </div>
+                
+                {/* Main Card */}
+                <div className={`rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg border-2 ${s.borderColor} ${s.bgColor} hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 relative overflow-hidden`}>
+                  {/* Background Pattern */}
+                  <div className="absolute top-0 right-0 w-20 h-20 opacity-10">
+                    <div className="text-4xl sm:text-6xl">{s.icon}</div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="text-center mb-4">
+                      <div className="text-3xl sm:text-4xl mb-2">{s.icon}</div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{s.title}</h3>
+                      <p className="text-sm sm:text-base font-medium text-gray-600">{s.subtitle}</p>
+                    </div>
+                    
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center">
+                      {s.text}
+                    </p>
+                    
+                    {/* Progress Indicator */}
+                    <div className="mt-6 flex justify-center">
+                      <div className="flex space-x-1">
+                        {[1, 2, 3, 4].map((step) => (
+                          <div
+                            key={step}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                              parseInt(s.step) >= step 
+                                ? `bg-gradient-to-r ${s.color}` 
+                                : 'bg-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl sm:rounded-3xl"></div>
+                </div>
+                
+                {/* Arrow for Desktop */}
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <div className="w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center">
+                      <svg className="w-4 h-4 text-ge-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <div className="bg-gradient-to-r from-ge-600 to-ge-700 rounded-2xl p-6 sm:p-8 text-white">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+              Ready to Start Your AI Journey?
+            </h3>
+            <p className="text-sm sm:text-base text-ge-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
+              Join thousands of learners who have already transformed their careers with our proven learning path. Start with Step 1 today!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link
+                href="/catalog"
+                className="btn-primary bg-white text-ge-600 hover:bg-gray-100"
+              >
+                Start Learning Now
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="btn-outline border-white text-white hover:bg-white hover:text-ge-600"
+              >
+                Get Free Access
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* DEMO COURSES */}
