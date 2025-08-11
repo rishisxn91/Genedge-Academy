@@ -15,7 +15,7 @@ const courseUpdateSchema = z.object({
 })
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -49,9 +49,9 @@ export async function GET(
 
     return NextResponse.json(course)
   } catch (error) {
-    console.error('Error fetching course:', error)
+    console.error('GET /api/courses/[id] failed:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch course' },
+      { error: 'Internal error' },
       { status: 500 }
     )
   }

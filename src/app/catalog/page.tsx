@@ -26,10 +26,10 @@ interface Course {
   }
 }
 
-// Sample course data for demonstration
+// Sample course data for demonstration (fallback)
 const sampleCourses: Course[] = [
   {
-    id: '1',
+    id: 'sample-1',
     title: 'AI in 1 Hour — Beginner Kickstart',
     description: 'Understand key concepts and ship your first AI mini‑project. Perfect for complete beginners who want to get started with AI quickly.',
     pricePaise: 0,
@@ -39,7 +39,7 @@ const sampleCourses: Course[] = [
     _count: { enrollments: 1250 }
   },
   {
-    id: '2',
+    id: 'sample-2',
     title: 'AI Tools to Save 10 Hours/Week',
     description: 'Email, docs, sheets, and research — streamlined with AI. Learn practical tools that immediately boost your productivity.',
     pricePaise: 0,
@@ -47,46 +47,6 @@ const sampleCourses: Course[] = [
     author: { name: 'GenEdge Academy' },
     modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }] }],
     _count: { enrollments: 2100 }
-  },
-  {
-    id: '3',
-    title: 'Prompt Engineering Essentials',
-    description: 'Reliable prompts for ChatGPT, Claude, and Gemini. Master the art of communicating effectively with AI models.',
-    pricePaise: 0,
-    published: true,
-    author: { name: 'GenEdge Academy' },
-    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }] }],
-    _count: { enrollments: 1800 }
-  },
-  {
-    id: '4',
-    title: 'AI for Business Automation',
-    description: 'Automate your business processes with AI. Learn to build workflows that save time and increase efficiency.',
-    pricePaise: 249900,
-    published: true,
-    author: { name: 'GenEdge Academy' },
-    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }, { id: '6' }] }],
-    _count: { enrollments: 950 }
-  },
-  {
-    id: '5',
-    title: 'AI Content Creation Mastery',
-    description: 'Create engaging content with AI tools. From blog posts to social media, learn to generate high-quality content efficiently.',
-    pricePaise: 199900,
-    published: true,
-    author: { name: 'GenEdge Academy' },
-    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }] }],
-    _count: { enrollments: 1600 }
-  },
-  {
-    id: '6',
-    title: 'Advanced AI Agents Development',
-    description: 'Build intelligent AI agents that can handle complex tasks. Learn advanced techniques for creating sophisticated AI systems.',
-    pricePaise: 399900,
-    published: true,
-    author: { name: 'GenEdge Academy' },
-    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }, { id: '6' }, { id: '7' }] }],
-    _count: { enrollments: 750 }
   }
 ]
 

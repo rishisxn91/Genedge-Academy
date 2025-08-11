@@ -21,8 +21,8 @@ async function main() {
 
   console.log('✅ Admin user created:', admin.email)
 
-  // Create sample course
-  const course = await prisma.course.create({
+  // Create sample courses
+  const course1 = await prisma.course.create({
     data: {
       title: 'Prompting Mastery (Hindi)',
       description: 'Master the art of prompt engineering in Hindi. Learn to create effective prompts for AI tools and maximize their potential.',
@@ -32,15 +32,25 @@ async function main() {
     },
   })
 
-  console.log('✅ Course created:', course.title)
+  const course2 = await prisma.course.create({
+    data: {
+      title: 'AI in 1 Hour — Beginner Kickstart',
+      description: 'Understand key concepts and ship your first AI mini‑project. Perfect for complete beginners who want to get started with AI quickly.',
+      pricePaise: 0, // Free
+      published: true,
+      authorId: admin.id,
+    },
+  })
 
-  // Create module
+  console.log('✅ Courses created:', course1.title, 'and', course2.title)
+
+  // Create modules for course 1
   const module1 = await prisma.module.create({
     data: {
       title: 'Introduction to Prompting',
       description: 'Learn the fundamentals of prompt engineering',
       order: 1,
-      courseId: course.id,
+      courseId: course1.id,
     },
   })
 
@@ -73,13 +83,13 @@ async function main() {
 
   console.log('✅ Lectures created:', lecture1.title, 'and', lecture2.title)
 
-  // Create a second module
+  // Create a second module for course 1
   const module2 = await prisma.module.create({
     data: {
       title: 'Advanced Prompting Techniques',
       description: 'Master advanced prompt engineering techniques',
       order: 2,
-      courseId: course.id,
+      courseId: course1.id,
     },
   })
 
