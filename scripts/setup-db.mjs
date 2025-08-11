@@ -17,13 +17,21 @@ try {
   console.log('📦 Generating Prisma client...')
   execSync('npx prisma generate', { stdio: 'inherit' })
 
-  // Run migrations
+  // Run migrations (optional - will use memory store if fails)
   console.log('🔄 Running database migrations...')
-  execSync('npx prisma migrate deploy', { stdio: 'inherit' })
+  try {
+    execSync('npx prisma migrate deploy', { stdio: 'inherit' })
+  } catch (error) {
+    console.log('⚠️  Database migration failed, will use memory store')
+  }
 
-  // Seed the database if needed
+  // Seed the database if needed (optional)
   console.log('🌱 Seeding database...')
-  execSync('npm run seed', { stdio: 'inherit' })
+  try {
+    execSync('npm run seed', { stdio: 'inherit' })
+  } catch (error) {
+    console.log('⚠️  Database seeding failed, will use memory store')
+  }
 
   console.log('✅ Database setup complete!')
 } catch (error) {
