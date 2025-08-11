@@ -56,6 +56,13 @@ export default function Home() {
     <main className="bg-gray-50 text-gray-900">
       {/* HERO */}
       <header className="relative isolate overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 text-white">
+        {/* Moving Live Icon */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+            ⏰ LIMITED TIME: 30% OFF Professional Plan - Ends Soon!
+          </div>
+        </div>
+        
         <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-sm/6">
