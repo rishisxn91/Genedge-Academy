@@ -2,10 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: smooth fonts */
-:root { color-scheme: light; }
-html, body { height: 100%; }
-body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+/* Mobile-first responsive design */
+:root { 
+  color-scheme: light; 
+}
+
+html, body { 
+  height: 100%; 
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+body { 
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile touch improvements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling for mobile */
+html {
+  scroll-behavior: smooth;
+}
 
 @layer components {
   .container {
@@ -13,31 +34,31 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, U
   }
   
   .section {
-    @apply py-16 sm:py-24;
+    @apply py-12 sm:py-16 lg:py-24;
   }
   
   .heading-1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight;
   }
   
   .heading-2 {
-    @apply text-3xl sm:text-4xl font-bold text-gray-900;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight;
   }
   
   .heading-3 {
-    @apply text-2xl sm:text-3xl font-semibold text-gray-900;
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 leading-tight;
   }
   
   .text-body {
-    @apply text-lg text-gray-600 leading-relaxed;
+    @apply text-base sm:text-lg text-gray-600 leading-relaxed;
   }
   
   .card {
-    @apply bg-white rounded-2xl shadow-card p-6;
+    @apply bg-white rounded-xl sm:rounded-2xl shadow-sm sm:shadow-card p-4 sm:p-6;
   }
   
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-ge-500 focus:border-transparent transition-colors duration-200;
+    @apply w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-ge-500 focus:border-transparent transition-colors duration-200 text-base;
   }
   
   .form-label {
@@ -47,10 +68,59 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, U
   .error-text {
     @apply text-red-600 text-sm mt-1;
   }
+  
+  /* Mobile-optimized buttons */
+  .btn-primary {
+    @apply bg-ge-600 hover:bg-ge-700 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-200 text-sm sm:text-base min-h-[44px] sm:min-h-[48px] flex items-center justify-center;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-ge-600 text-ge-600 hover:bg-ge-600 hover:text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-200 text-sm sm:text-base min-h-[44px] sm:min-h-[48px] flex items-center justify-center;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-200 text-sm sm:text-base min-h-[44px] sm:min-h-[48px] flex items-center justify-center;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Mobile-specific utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-margin {
+    @apply mx-4 sm:mx-6 lg:mx-8;
+  }
+  
+  /* Safe area for mobile devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Mobile grid improvements */
+  .mobile-grid {
+    @apply grid gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Mobile text sizing */
+  .mobile-text-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-text-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .mobile-text-lg {
+    @apply text-lg sm:text-xl;
   }
 }

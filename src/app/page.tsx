@@ -57,58 +57,58 @@ export default function Home() {
       {/* HERO */}
       <header className="relative isolate overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 text-white">
         {/* Moving Live Icon */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+        <div className="absolute top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 sm:px-6 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg animate-pulse max-w-[90vw] text-center">
             ⏰ LIMITED TIME: 30% OFF Professional Plan - Ends Soon!
           </div>
         </div>
         
-        <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-16 pb-16 sm:pb-24">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-sm/6">
+            <span className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-white/30 bg-white/10 px-2 sm:px-3 py-1 text-xs sm:text-sm/6">
               Launch Offer • Bilingual (EN + HI) • Seats left: <strong aria-live="polite">{seats}</strong>
             </span>
-            <h1 className="mt-6 text-balance text-4xl font-extrabold leading-tight md:text-6xl">
+            <h1 className="mt-4 sm:mt-6 text-balance text-2xl sm:text-4xl font-extrabold leading-tight md:text-6xl">
               AI Skills for Every Future — Learn, Apply, and Stay Ahead
             </h1>
-            <p className="mt-4 text-pretty text-lg/8 opacity-95">
+            <p className="mt-3 sm:mt-4 text-pretty text-base sm:text-lg/8 opacity-95">
               From students to CEOs, master practical AI with self‑paced lessons, real projects, an AI doubt solver,
               and verified certificates. No fluff — just outcomes.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-wrap sm:flex-row items-stretch sm:items-center gap-3">
               <Link
                 href="/catalog"
-                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-yellow-400 px-5 font-bold text-black hover:bg-yellow-300"
+                className="inline-flex min-h-[44px] sm:min-h-12 items-center justify-center rounded-xl bg-yellow-400 px-4 sm:px-5 font-bold text-black hover:bg-yellow-300 text-sm sm:text-base"
               >
                 Start Free Demo
               </Link>
               <Link
                 href={primaryHref}
                 onClick={onEnrollClick}
-                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/30 bg-white/10 px-5 font-semibold hover:bg-white/15"
+                className="inline-flex min-h-[44px] sm:min-h-12 items-center justify-center rounded-xl border border-white/30 bg-white/10 px-4 sm:px-5 font-semibold hover:bg-white/15 text-sm sm:text-base"
               >
                 See Course Plans
               </Link>
-              <span className="ml-2 text-sm opacity-90">
+              <span className="text-center sm:text-left text-xs sm:text-sm opacity-90 mt-2 sm:mt-0 sm:ml-2">
                 Offer ends in <strong aria-live="polite">{remaining}</strong>
               </span>
             </div>
 
-            <dl className="mt-8 grid grid-cols-2 gap-6 text-sm opacity-95 sm:grid-cols-4">
-              <div>
+            <dl className="mt-6 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-6 text-xs sm:text-sm opacity-95 sm:grid-cols-4">
+              <div className="text-center sm:text-left">
                 <dt className="font-semibold">Learners</dt>
                 <dd>500+</dd>
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <dt className="font-semibold">Courses</dt>
                 <dd>25+</dd>
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <dt className="font-semibold">Access</dt>
                 <dd>100% self‑paced</dd>
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <dt className="font-semibold">Fees</dt>
                 <dd>₹0 hidden charges</dd>
               </div>
@@ -118,20 +118,20 @@ export default function Home() {
       </header>
 
       {/* WHO IT'S FOR */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <h2 className="text-3xl font-bold">Made for Everyone</h2>
-        <p className="mt-2 text-gray-600">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Made for Everyone</h2>
+        <p className="mt-2 text-gray-600 text-center sm:text-left">
           Not just for techies — AI boosts outcomes in study, work, business, and life.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 sm:mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { title: "Students", desc: "Build future‑proof skills before you graduate." },
             { title: "Professionals", desc: "Automate routine tasks and save hours weekly." },
             { title: "Freelancers", desc: "Offer in‑demand AI services with confidence." },
             { title: "Business Owners", desc: "Use AI to grow revenue and cut costs." },
           ].map((c) => (
-            <div key={c.title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
-              <div className="text-lg font-semibold">{c.title}</div>
+            <div key={c.title} className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200">
+              <div className="text-base sm:text-lg font-semibold">{c.title}</div>
               <div className="mt-1 text-sm text-gray-600">{c.desc}</div>
             </div>
           ))}
@@ -139,8 +139,8 @@ export default function Home() {
       </section>
 
       {/* LEARNING PATH */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <h2 className="text-3xl font-bold">Your Learning Path</h2>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Your Learning Path</h2>
         <ol className="mt-6 grid gap-4 md:grid-cols-4">
           {[
             { step: "1", title: "Foundation", text: "AI basics, prompt skills, practical tools." },
@@ -148,9 +148,9 @@ export default function Home() {
             { step: "3", title: "Apply", text: "Build real projects you can show employers or clients." },
             { step: "4", title: "Advance", text: "Earn a certificate and level up career or business." },
           ].map((s) => (
-            <li key={s.step} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
-              <div className="text-sm font-bold text-indigo-600">Step {s.step}</div>
-              <div className="mt-1 text-lg font-semibold">{s.title}</div>
+            <li key={s.step} className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200">
+              <div className="text-xs sm:text-sm font-bold text-indigo-600">Step {s.step}</div>
+              <div className="mt-1 text-base sm:text-lg font-semibold">{s.title}</div>
               <p className="mt-1 text-sm text-gray-600">{s.text}</p>
             </li>
           ))}
@@ -158,14 +158,14 @@ export default function Home() {
       </section>
 
       {/* DEMO COURSES */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-3xl font-bold">Free Demo Courses</h2>
-          <Link href="/catalog" className="text-indigo-700 hover:underline">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Free Demo Courses</h2>
+          <Link href="/catalog" className="text-indigo-700 hover:underline text-center sm:text-left">
             Browse all →
           </Link>
         </div>
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
             {
               title: "AI in 1 Hour — Beginner Kickstart",
@@ -185,21 +185,21 @@ export default function Home() {
           ].map((c) => (
             <article
               key={c.title}
-              className="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200"
+              className="flex flex-col rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200"
             >
-              <div className="text-lg font-semibold">{c.title}</div>
+              <div className="text-base sm:text-lg font-semibold">{c.title}</div>
               <p className="mt-1 text-sm text-gray-600">{c.desc}</p>
               <div className="mt-2 text-xs font-medium text-emerald-700">{c.tag}</div>
-              <div className="mt-4 flex gap-3">
+              <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-3">
                 <Link
                   href="/auth/signin"
-                  className="inline-flex min-h-10 items-center justify-center rounded-lg bg-indigo-600 px-4 text-white hover:bg-indigo-500"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-indigo-600 px-4 text-white hover:bg-indigo-500 text-sm"
                 >
                   Start Free
                 </Link>
                 <Link
                   href="/course/ai-in-1-hour"
-                  className="inline-flex min-h-10 items-center justify-center rounded-lg border border-gray-300 px-4 hover:bg-gray-50"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-gray-300 px-4 hover:bg-gray-50 text-sm"
                 >
                   View Syllabus
                 </Link>
@@ -210,17 +210,17 @@ export default function Home() {
       </section>
 
       {/* POPULAR COURSES BY GOAL */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <h2 className="text-3xl font-bold">Popular Paths by Goal</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Popular Paths by Goal</h2>
+        <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {[
             { title: "AI for Business Owners", line: "Automate marketing, sales & ops." },
             { title: "AI Productivity for Professionals", line: "Save hours every week." },
             { title: "AI Side Hustles", line: "Freelancing & content systems." },
             { title: "Prompt Engineering Mastery", line: "Communicate with AI like a pro." },
           ].map((c) => (
-            <div key={c.title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
-              <div className="text-lg font-semibold">{c.title}</div>
+            <div key={c.title} className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200">
+              <div className="text-base sm:text-lg font-semibold">{c.title}</div>
               <div className="mt-1 text-sm text-gray-600">{c.line}</div>
               <Link href="/catalog" className="mt-3 inline-block text-indigo-700 hover:underline">
                 Explore →
@@ -231,10 +231,10 @@ export default function Home() {
       </section>
 
       {/* PRICING – Decoy Effect (push Professional) */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <h2 className="text-3xl font-bold">Simple, Transparent Pricing</h2>
-        <p className="mt-1 text-gray-600">No hidden charges. 7‑day refund policy.</p>
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Simple, Transparent Pricing</h2>
+        <p className="mt-1 text-gray-600 text-center sm:text-left">No hidden charges. 7‑day refund policy.</p>
+        <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 lg:grid-cols-3">
           {/* Starter */}
           <Plan
             name="Starter"
@@ -278,23 +278,23 @@ export default function Home() {
             cta={{ label: "Get Lifetime Access", href: "/checkout?plan=lifetime" }}
           />
         </div>
-        <p className="mt-4 text-sm text-gray-600">
+        <p className="mt-4 text-sm text-gray-600 text-center sm:text-left">
           * Majority of learners pick <strong>Professional</strong> for best value. Prices inclusive of taxes; terms apply.
         </p>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="mx-auto max-w-7xl px-6 pb-10">
-        <h2 className="text-3xl font-bold">What Learners Say</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-                     {[
-             { q: '"Implemented automation in my business within 2 months."', a: "Priya • Business Owner" },
-             { q: '"My productivity doubled — my manager noticed."', a: "Anuj • Working Professional" },
-             { q: '"Landed my first freelance project after the Professional plan."', a: "Sahil • Student" },
-           ].map((t) => (
-            <figure key={t.a} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
-              <blockquote className="text-balance">{t.q}</blockquote>
-              <figcaption className="mt-3 text-sm text-gray-600">— {t.a}</figcaption>
+            {/* SOCIAL PROOF */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-8 sm:pb-10">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">What Learners Say</h2>
+        <div className="mt-6 grid gap-4 sm:gap-6 md:grid-cols-3">
+          {[
+            { q: '"Implemented automation in my business within 2 months."', a: "Priya • Business Owner" },
+            { q: '"My productivity doubled — my manager noticed."', a: "Anuj • Working Professional" },
+            { q: '"Landed my first freelance project after the Professional plan."', a: "Sahil • Student" },
+          ].map((t) => (
+            <figure key={t.a} className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-gray-200">
+              <blockquote className="text-balance text-sm sm:text-base">{t.q}</blockquote>
+              <figcaption className="mt-3 text-xs sm:text-sm text-gray-600">— {t.a}</figcaption>
             </figure>
           ))}
         </div>
@@ -302,14 +302,14 @@ export default function Home() {
 
       {/* FOOTER – GMC trust */}
       <footer className="border-t border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div className="text-lg font-extrabold">GenEdge Academy</div>
-            <div className="text-sm text-gray-600">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:px-6 py-6 sm:py-8 md:flex-row md:items-center md:justify-between">
+          <div className="text-center md:text-left">
+            <div className="text-base sm:text-lg font-extrabold">GenEdge Academy</div>
+            <div className="text-xs sm:text-sm text-gray-600">
               Transparent pricing • Secure checkout • 7‑day refunds
             </div>
           </div>
-          <nav className="flex flex-wrap gap-5 text-sm text-gray-700">
+          <nav className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-5 text-xs sm:text-sm text-gray-700">
             <Link href="/pricing" className="hover:underline">Pricing</Link>
             <Link href="/faq" className="hover:underline">FAQ</Link>
             <Link href="/contact" className="hover:underline">Contact</Link>
@@ -343,19 +343,19 @@ function Plan({
   return (
     <div
       className={[
-        "relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200",
+        "relative rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-gray-200",
         highlight ? "border-2 border-yellow-400 shadow-md" : "",
       ].join(" ")}
       aria-label={`${name} plan`}
     >
       {badge ? (
-        <div className="absolute -top-3 left-4 rounded-full bg-yellow-300 px-3 py-1 text-xs font-bold text-black">
+        <div className="absolute -top-2 sm:-top-3 left-2 sm:left-4 rounded-full bg-yellow-300 px-2 sm:px-3 py-1 text-xs font-bold text-black">
           {badge}
         </div>
       ) : null}
-      <div className="text-lg font-bold">{name}</div>
-      <div className="mt-1 text-3xl font-extrabold">{price}</div>
-      <ul className="mt-3 space-y-2 text-sm text-gray-700">
+      <div className="text-base sm:text-lg font-bold">{name}</div>
+      <div className="mt-1 text-2xl sm:text-3xl font-extrabold">{price}</div>
+      <ul className="mt-3 space-y-2 text-xs sm:text-sm text-gray-700">
         {features.map((f) => (
           <li key={f}>✅ {f}</li>
         ))}
@@ -363,7 +363,7 @@ function Plan({
       <Link
         href={cta.href}
         className={[
-          "mt-5 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 font-semibold",
+          "mt-4 sm:mt-5 inline-flex w-full items-center justify-center rounded-xl px-4 sm:px-5 py-2 sm:py-3 font-semibold min-h-[44px] sm:min-h-[48px] text-sm sm:text-base",
           highlight ? "bg-indigo-600 text-white hover:bg-indigo-500" : "border border-gray-300 hover:bg-gray-50",
         ].join(" ")}
       >
