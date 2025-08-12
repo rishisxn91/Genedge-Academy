@@ -9,31 +9,32 @@ import { PRICING_CONFIG, formatPrice, getSavingsAmount, getSavingsPercentage } f
 
 const pricingPlans = [
   {
-    name: 'Starter',
-    price: 999,
-    description: 'Perfect for beginners starting their AI journey',
+    name: 'Individual Course',
+    price: 1999,
+    description: 'Perfect for focused learning on specific AI topics',
     features: [
-      'Access to 3 courses',
-      'Basic prompt engineering',
+      'Single course access',
+      'Certificate upon completion',
+      'Self-paced learning',
+      'Bilingual (English/Hindi)',
       'Community support',
-      'Certificate of completion',
       `${PRICING_CONFIG.refundWindow}-day money-back guarantee`
     ],
     popular: false,
     icon: Users
   },
   {
-    name: 'Professional',
-    price: PRICING_CONFIG.professional.price,
-    description: 'Comprehensive learning for serious AI practitioners',
+    name: 'Annual Membership',
+    price: PRICING_CONFIG.membership.price,
+    description: 'Complete AI learning journey with unlimited access',
     features: [
-      'Access to all courses',
-      'Advanced prompt engineering',
-      'AI tools mastery',
+      'Unlimited access to all 5 courses',
+      'Quarterly AI updates',
+      'Verified certificates',
+      'Premium community access',
       'Priority support',
       'Project portfolio',
       'Career guidance',
-      'Lifetime access',
       `${PRICING_CONFIG.refundWindow}-day money-back guarantee`
     ],
     popular: true,
@@ -41,10 +42,10 @@ const pricingPlans = [
   },
   {
     name: 'Enterprise',
-    price: 4999,
+    price: 14999,
     description: 'Team training and corporate AI adoption',
     features: [
-      'Everything in Professional',
+      'Everything in Annual Membership',
       'Team management',
       'Custom content',
       'Dedicated support',
@@ -100,7 +101,7 @@ export default function PricingPage() {
             Choose Your Learning Path
           </h1>
           <p className="text-xl text-ge-100 max-w-3xl mx-auto mb-8">
-            Transparent pricing with no hidden fees. All plans include lifetime access and our 30-day money-back guarantee.
+            Transparent pricing with no hidden fees. Choose individual courses or get unlimited access with our annual membership. All plans include our {PRICING_CONFIG.refundWindow}-day money-back guarantee.
           </p>
           
           {/* Billing Toggle */}

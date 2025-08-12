@@ -1,0 +1,320 @@
+{
+  "courses": [
+    {
+      "id": "ai-essentials-prompt-engineering",
+      "title": "AI Essentials & Prompt Engineering",
+      "description": "Master generative AI and LLM basics, learn clear prompt writing and bias mitigation. Includes interactive exercises and a final project.",
+      "duration": "5 hours",
+      "level": "Beginner",
+      "price": {
+        "current": 2999,
+        "original": 3499,
+        "currency": "INR",
+        "savings": 500,
+        "savingsPercentage": 14
+      },
+      "features": [
+        "Generative AI and LLM fundamentals",
+        "Clear prompt writing techniques",
+        "Bias mitigation strategies",
+        "Interactive exercises",
+        "Final project",
+        "Certificate upon completion",
+        "Bilingual (English/Hindi)",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Understand core AI and LLM concepts",
+        "Write effective prompts for various AI tools",
+        "Identify and mitigate AI bias",
+        "Complete hands-on AI projects",
+        "Apply AI skills in real-world scenarios"
+      ],
+      "modules": [
+        {
+          "title": "Introduction to Generative AI",
+          "duration": "1 hour",
+          "topics": ["AI fundamentals", "LLM basics", "AI applications"]
+        },
+        {
+          "title": "Prompt Engineering Fundamentals",
+          "duration": "1.5 hours",
+          "topics": ["Prompt structure", "Clear communication", "Context setting"]
+        },
+        {
+          "title": "Advanced Prompting Techniques",
+          "duration": "1.5 hours",
+          "topics": ["Chain of thought", "Few-shot learning", "Role prompting"]
+        },
+        {
+          "title": "Bias and Ethics in AI",
+          "duration": "0.5 hours",
+          "topics": ["AI bias identification", "Mitigation strategies", "Ethical considerations"]
+        },
+        {
+          "title": "Final Project",
+          "duration": "0.5 hours",
+          "topics": ["Project implementation", "Review and feedback", "Certificate"]
+        }
+      ]
+    },
+    {
+      "id": "ai-marketing-ecommerce",
+      "title": "AI for Marketing & E-Commerce",
+      "description": "Automate content creation, run AI-powered ad campaigns, perform segmentation and personalization. Address AI ethics in marketing.",
+      "duration": "7 hours",
+      "level": "Intermediate",
+      "price": {
+        "current": 4999,
+        "original": 5999,
+        "currency": "INR",
+        "savings": 1000,
+        "savingsPercentage": 17
+      },
+      "features": [
+        "AI-powered content creation",
+        "Automated ad campaign management",
+        "Customer segmentation",
+        "Personalization strategies",
+        "AI ethics in marketing",
+        "Real-world case studies",
+        "Certificate upon completion",
+        "Bilingual (English/Hindi)",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Create AI-powered marketing content",
+        "Automate ad campaigns effectively",
+        "Implement customer segmentation",
+        "Apply personalization strategies",
+        "Navigate AI ethics in marketing"
+      ],
+      "modules": [
+        {
+          "title": "AI Content Creation",
+          "duration": "2 hours",
+          "topics": ["Content automation", "Copywriting AI", "Visual content generation"]
+        },
+        {
+          "title": "AI-Powered Advertising",
+          "duration": "2 hours",
+          "topics": ["Campaign automation", "Ad optimization", "Performance tracking"]
+        },
+        {
+          "title": "Customer Segmentation",
+          "duration": "1.5 hours",
+          "topics": ["Data analysis", "Segmentation strategies", "Targeting optimization"]
+        },
+        {
+          "title": "Personalization",
+          "duration": "1 hour",
+          "topics": ["Personalized experiences", "Recommendation systems", "Customer journey optimization"]
+        },
+        {
+          "title": "AI Ethics in Marketing",
+          "duration": "0.5 hours",
+          "topics": ["Ethical considerations", "Privacy protection", "Responsible AI use"]
+        }
+      ]
+    },
+    {
+      "id": "applied-machine-learning",
+      "title": "Applied Machine Learning & Data Science",
+      "description": "Cover Python fundamentals, data preprocessing, regression/classification, clustering and neural network basics. Includes coding labs and capstone project.",
+      "duration": "20 hours",
+      "level": "Advanced",
+      "price": {
+        "current": 7999,
+        "original": 9999,
+        "currency": "INR",
+        "savings": 2000,
+        "savingsPercentage": 20
+      },
+      "features": [
+        "Python fundamentals for ML",
+        "Data preprocessing techniques",
+        "Regression and classification",
+        "Clustering algorithms",
+        "Neural network basics",
+        "Coding labs and exercises",
+        "Capstone project",
+        "Certificate upon completion",
+        "Bilingual (English/Hindi)",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Master Python for machine learning",
+        "Preprocess data effectively",
+        "Implement regression and classification models",
+        "Apply clustering algorithms",
+        "Build basic neural networks",
+        "Complete a comprehensive ML project"
+      ],
+      "modules": [
+        {
+          "title": "Python Fundamentals for ML",
+          "duration": "3 hours",
+          "topics": ["Python basics", "NumPy", "Pandas", "Matplotlib"]
+        },
+        {
+          "title": "Data Preprocessing",
+          "duration": "4 hours",
+          "topics": ["Data cleaning", "Feature engineering", "Data scaling", "Handling missing values"]
+        },
+        {
+          "title": "Regression Models",
+          "duration": "4 hours",
+          "topics": ["Linear regression", "Polynomial regression", "Model evaluation", "Cross-validation"]
+        },
+        {
+          "title": "Classification Models",
+          "duration": "4 hours",
+          "topics": ["Logistic regression", "Decision trees", "Random forests", "SVM"]
+        },
+        {
+          "title": "Clustering",
+          "duration": "2 hours",
+          "topics": ["K-means clustering", "Hierarchical clustering", "DBSCAN"]
+        },
+        {
+          "title": "Neural Networks",
+          "duration": "3 hours",
+          "topics": ["Neural network basics", "Backpropagation", "Deep learning introduction"]
+        }
+      ]
+    },
+    {
+      "id": "ai-productivity-tools",
+      "title": "AI Productivity Tools & Workflow Automation",
+      "description": "Integrate AI assistants (ChatGPT, Gemini) into everyday tasks. Master summarization, translation, and email writing automation.",
+      "duration": "4 hours",
+      "level": "Beginner",
+      "price": {
+        "current": 2499,
+        "original": 2999,
+        "currency": "INR",
+        "savings": 500,
+        "savingsPercentage": 17
+      },
+      "features": [
+        "AI assistant integration",
+        "Task automation",
+        "Content summarization",
+        "Translation tools",
+        "Email automation",
+        "Workflow optimization",
+        "Certificate upon completion",
+        "Bilingual (English/Hindi)",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Integrate AI assistants into daily workflows",
+        "Automate repetitive tasks",
+        "Summarize content effectively",
+        "Use AI for translation",
+        "Automate email writing",
+        "Optimize productivity workflows"
+      ],
+      "modules": [
+        {
+          "title": "AI Assistant Integration",
+          "duration": "1 hour",
+          "topics": ["ChatGPT setup", "Gemini integration", "Best practices"]
+        },
+        {
+          "title": "Task Automation",
+          "duration": "1 hour",
+          "topics": ["Workflow automation", "Repetitive task elimination", "Efficiency optimization"]
+        },
+        {
+          "title": "Content Processing",
+          "duration": "1 hour",
+          "topics": ["Content summarization", "Document analysis", "Information extraction"]
+        },
+        {
+          "title": "Communication Automation",
+          "duration": "1 hour",
+          "topics": ["Email automation", "Translation tools", "Communication optimization"]
+        }
+      ]
+    },
+    {
+      "id": "responsible-ai-ethics",
+      "title": "Responsible AI & Ethics",
+      "description": "Understand fairness, bias, privacy and regulatory considerations in AI. Learn through practical case studies and real-world applications.",
+      "duration": "3 hours",
+      "level": "Intermediate",
+      "price": {
+        "current": 1999,
+        "original": 1999,
+        "currency": "INR",
+        "savings": 0,
+        "savingsPercentage": 0
+      },
+      "features": [
+        "AI fairness and bias",
+        "Privacy considerations",
+        "Regulatory compliance",
+        "Practical case studies",
+        "Real-world applications",
+        "Ethical decision-making",
+        "Certificate upon completion",
+        "Bilingual (English/Hindi)",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Identify AI bias and fairness issues",
+        "Understand privacy implications",
+        "Navigate regulatory requirements",
+        "Apply ethical principles to AI",
+        "Make responsible AI decisions"
+      ],
+      "modules": [
+        {
+          "title": "AI Fairness and Bias",
+          "duration": "1 hour",
+          "topics": ["Bias identification", "Fairness metrics", "Mitigation strategies"]
+        },
+        {
+          "title": "Privacy and Security",
+          "duration": "1 hour",
+          "topics": ["Data privacy", "Security considerations", "Protection measures"]
+        },
+        {
+          "title": "Regulatory and Ethical",
+          "duration": "1 hour",
+          "topics": ["Regulatory compliance", "Ethical frameworks", "Responsible AI practices"]
+        }
+      ]
+    }
+  ],
+  "membership": {
+    "name": "Annual Membership",
+    "price": {
+      "current": 8999,
+      "original": 14999,
+      "currency": "INR",
+      "savings": 6000,
+      "savingsPercentage": 40
+    },
+    "description": "Unlimited access to all courses + quarterly AI updates",
+    "features": [
+      "Unlimited access to all 5 courses",
+      "Quarterly AI updates",
+      "Verified certificates",
+      "Premium community access",
+      "Priority support",
+      "Project portfolio",
+      "Career guidance",
+      "30-day money-back guarantee"
+    ]
+  },
+  "metadata": {
+    "totalCourses": 5,
+    "totalDuration": "39 hours",
+    "levels": ["Beginner", "Intermediate", "Advanced"],
+    "languages": ["English", "Hindi"],
+    "certification": true,
+    "refundPolicy": "30 days"
+  }
+}

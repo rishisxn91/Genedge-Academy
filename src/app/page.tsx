@@ -300,19 +300,19 @@ export default function Home() {
         <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              title: "AI in 1 Hour — Beginner Kickstart",
-              desc: "Understand key concepts and ship your first AI mini‑project.",
-              tag: "Beginner • English/Hindi",
+              title: "AI Essentials & Prompt Engineering",
+              desc: "Master generative AI and LLM basics, learn clear prompt writing and bias mitigation.",
+              tag: "5 hours • Beginner • English/Hindi",
             },
             {
-              title: "AI Tools to Save 10 Hours/Week",
-              desc: "Email, docs, sheets, and research — streamlined with AI.",
-              tag: "All Levels • English/Hindi",
+              title: "AI for Marketing & E-Commerce",
+              desc: "Automate content creation, run AI-powered ad campaigns, perform segmentation and personalization.",
+              tag: "7 hours • Intermediate • English/Hindi",
             },
             {
-              title: "Prompt Engineering Essentials",
-              desc: "Reliable prompts for ChatGPT, Claude, and Gemini.",
-              tag: "Beginner+ • English/Hindi",
+              title: "AI Productivity Tools & Workflow Automation",
+              desc: "Integrate AI assistants (ChatGPT, Gemini) into everyday tasks. Master summarization and automation.",
+              tag: "4 hours • Beginner • English/Hindi",
             },
           ].map((c) => (
             <article
@@ -367,51 +367,52 @@ export default function Home() {
         <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Simple, Transparent Pricing</h2>
         <p className="mt-1 text-gray-600 text-center sm:text-left">No hidden charges. {PRICING_CONFIG.refundWindow}‑day refund policy.</p>
         <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 lg:grid-cols-3">
-          {/* Starter */}
+          {/* Individual Course */}
           <Plan
-            name="Starter"
-            price="₹999"
+            name="Individual Course"
+            price="₹1,999 - ₹7,999"
             badge=""
             features={[
-              "5 core courses",
-              "Certificate",
-              "Standard community",
-              "Limited AI doubt solver",
+              "Single course access",
+              "Certificate upon completion",
+              "Self-paced learning",
+              "Bilingual (English/Hindi)",
+              "30-day refund policy",
             ]}
-            cta={{ label: "Choose Starter", href: "/checkout?plan=starter" }}
+            cta={{ label: "Browse Courses", href: "/catalog" }}
           />
-          {/* Professional (Most Popular) */}
+          {/* Membership (Most Popular) */}
           <Plan
             highlight
-            name="Professional"
-            price={formatPrice(PRICING_CONFIG.professional.pricePaise)}
+            name="Annual Membership"
+            price={formatPrice(PRICING_CONFIG.membership.pricePaise)}
             badge={`🔥 Most Popular — Save ${getSavingsPercentage()}`}
             features={[
-              "All 25+ courses",
-              "Verified certificate",
-              "Premium community",
-              "Unlimited AI doubt solver",
-              "Priority updates",
+              "Unlimited access to all 5 courses",
+              "Quarterly AI updates",
+              "Verified certificates",
+              "Premium community access",
+              "Priority support",
             ]}
-            cta={{ label: "Join Professional", href: "/checkout?plan=pro" }}
+            cta={{ label: "Join Membership", href: "/checkout?plan=membership" }}
           />
-          {/* Lifetime Pro */}
+          {/* Enterprise */}
           <Plan
-            name="Lifetime Pro"
-            price="₹4,999"
+            name="Enterprise"
+            price="Custom"
             badge=""
             features={[
-              "All current & future courses",
-              "Verified certificate",
-              "Premium community",
-              "Unlimited AI doubt solver",
-              "Lifetime updates",
+              "Team training programs",
+              "Custom AI solutions",
+              "Dedicated support",
+              "Progress tracking",
+              "Bulk pricing available",
             ]}
-            cta={{ label: "Get Lifetime Access", href: "/checkout?plan=lifetime" }}
+            cta={{ label: "Contact Sales", href: `mailto:${PRICING_CONFIG.contactEmail}` }}
           />
         </div>
         <p className="mt-4 text-sm text-gray-600 text-center sm:text-left">
-          * Majority of learners pick <strong>Professional</strong> for best value. Prices inclusive of taxes; terms apply.
+          * Majority of learners pick <strong>Annual Membership</strong> for best value. Prices inclusive of taxes; terms apply.
         </p>
         <p className="mt-2 text-sm text-gray-600 text-center sm:text-left">
           Contact: <a href={`mailto:${PRICING_CONFIG.contactEmail}`} className="text-indigo-600 hover:underline">{PRICING_CONFIG.contactEmail}</a>

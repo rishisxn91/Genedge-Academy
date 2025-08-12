@@ -28,37 +28,57 @@ interface Course {
   }
 }
 
-// Sample course data for demonstration (fallback)
+// New AI course lineup based on research recommendations
 const sampleCourses: Course[] = [
   {
-    id: 'cme7cx67g000413ofoxnp6dw4',
-    title: 'AI in 1 Hour — Beginner Kickstart',
-    description: 'Understand key concepts and ship your first AI mini‑project. Perfect for complete beginners who want to get started with AI quickly.',
-    pricePaise: 0,
-    published: true,
-    author: { name: 'GenEdge Academy' },
-    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }] }],
-    _count: { enrollments: 1250 }
-  },
-  {
-    id: 'cme7cx67f000213ofdsctqb86',
-    title: 'Prompt Engineering Mastery',
-    description: 'Master the art of creating effective prompts for AI tools. Learn advanced techniques to get better results from ChatGPT, Claude, and more.',
-    pricePaise: 299900,
+    id: 'ai-essentials-prompt-engineering',
+    title: 'AI Essentials & Prompt Engineering',
+    description: 'Master generative AI and LLM basics, learn clear prompt writing and bias mitigation. Includes interactive exercises and a final project.',
+    pricePaise: 299900, // ₹2,999
     published: true,
     author: { name: 'GenEdge Academy' },
     modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }] }],
+    _count: { enrollments: 1250 }
+  },
+  {
+    id: 'ai-marketing-ecommerce',
+    title: 'AI for Marketing & E-Commerce',
+    description: 'Automate content creation, run AI-powered ad campaigns, perform segmentation and personalization. Address AI ethics in marketing.',
+    pricePaise: 499900, // ₹4,999
+    published: true,
+    author: { name: 'GenEdge Academy' },
+    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }, { id: '6' }, { id: '7' }] }],
     _count: { enrollments: 1850 }
   },
   {
-    id: 'cme7cx67g000413ofoxnp6dw4',
-    title: 'AI Tools to Save 10 Hours/Week',
-    description: 'Email, docs, sheets, and research — streamlined with AI. Learn practical tools that immediately boost your productivity.',
-    pricePaise: 0,
+    id: 'applied-machine-learning',
+    title: 'Applied Machine Learning & Data Science',
+    description: 'Cover Python fundamentals, data preprocessing, regression/classification, clustering and neural network basics. Includes coding labs and capstone project.',
+    pricePaise: 799900, // ₹7,999
+    published: true,
+    author: { name: 'GenEdge Academy' },
+    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }, { id: '6' }, { id: '7' }, { id: '8' }, { id: '9' }, { id: '10' }] }],
+    _count: { enrollments: 2100 }
+  },
+  {
+    id: 'ai-productivity-tools',
+    title: 'AI Productivity Tools & Workflow Automation',
+    description: 'Integrate AI assistants (ChatGPT, Gemini) into everyday tasks. Master summarization, translation, and email writing automation.',
+    pricePaise: 249900, // ₹2,499
     published: true,
     author: { name: 'GenEdge Academy' },
     modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }] }],
-    _count: { enrollments: 2100 }
+    _count: { enrollments: 1650 }
+  },
+  {
+    id: 'responsible-ai-ethics',
+    title: 'Responsible AI & Ethics',
+    description: 'Understand fairness, bias, privacy and regulatory considerations in AI. Learn through practical case studies and real-world applications.',
+    pricePaise: 199900, // ₹1,999
+    published: true,
+    author: { name: 'GenEdge Academy' },
+    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }] }],
+    _count: { enrollments: 950 }
   }
 ]
 

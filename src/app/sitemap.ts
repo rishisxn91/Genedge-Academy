@@ -57,8 +57,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Add course pages
   const courseIds = [
-    'cme7cx67g000413ofoxnp6dw4', // AI in 1 Hour
-    'cme7cx67f000213ofdsctqb86', // Prompt Engineering Mastery
+    'ai-essentials-prompt-engineering', // AI Essentials & Prompt Engineering
+    'ai-marketing-ecommerce', // AI for Marketing & E-Commerce
+    'applied-machine-learning', // Applied Machine Learning & Data Science
+    'ai-productivity-tools', // AI Productivity Tools & Workflow Automation
+    'responsible-ai-ethics', // Responsible AI & Ethics
   ]
 
   const courseRoutes = courseIds.map((id) => ({
