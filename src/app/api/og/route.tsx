@@ -24,68 +24,68 @@ export async function GET(request: Request) {
           padding: '40px',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            maxWidth: '800px',
-          }}
-        >
-          <div
-            style={{
-              fontSize: '48px',
-              fontWeight: 'bold',
-              color: '#ffffff',
-              marginBottom: '20px',
-              lineHeight: '1.2',
-            }}
-          >
-            {title}
-          </div>
-          <div
-            style={{
-              fontSize: '24px',
-              color: '#94a3b8',
-              marginBottom: '40px',
-            }}
-          >
-            {subtitle}
-          </div>
-          {(author || students) && (
-            <div
-              style={{
-                display: 'flex',
-                gap: '40px',
-                fontSize: '18px',
-                color: '#cbd5e1',
-              }}
-            >
-              {author && (
-                <div>
-                  <strong>Instructor:</strong> {author}
+                      <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  maxWidth: '800px',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: '48px',
+                    fontWeight: 'bold',
+                    color: '#ffffff',
+                    marginBottom: '20px',
+                    lineHeight: '1.2',
+                  }}
+                >
+                  {title}
                 </div>
-              )}
-              {students && (
-                <div>
-                  <strong>Students:</strong> {students}
+                <div
+                  style={{
+                    fontSize: '24px',
+                    color: '#94a3b8',
+                    marginBottom: '40px',
+                  }}
+                >
+                  {subtitle}
                 </div>
-              )}
-            </div>
-          )}
-          <div
-            style={{
-              marginTop: '40px',
-              fontSize: '32px',
-              fontWeight: 'bold',
-              color: '#fbbf24',
-            }}
-          >
-            GenEdge Academy
-          </div>
-        </div>
+                {(author || students) && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '40px',
+                      fontSize: '18px',
+                      color: '#cbd5e1',
+                    }}
+                  >
+                    {author && (
+                      <div style={{ display: 'flex' }}>
+                        <strong>Instructor:</strong> {author}
+                      </div>
+                    )}
+                    {students && (
+                      <div style={{ display: 'flex' }}>
+                        <strong>Students:</strong> {students}
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div
+                  style={{
+                    marginTop: '40px',
+                    fontSize: '32px',
+                    fontWeight: 'bold',
+                    color: '#fbbf24',
+                  }}
+                >
+                  GenEdge Academy
+                </div>
+              </div>
       </div>
     ),
     {
