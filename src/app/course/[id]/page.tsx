@@ -5,6 +5,9 @@ import { formatPrice } from '@/lib/utils'
 import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth'
 import CourseContent from './CourseContent'
+import { generateCourseMetadata } from '@/lib/metadata'
+import { generateCourseStructuredData } from '@/lib/structured-data'
+import Script from 'next/script'
 
 export const dynamic = 'force-dynamic'
 
@@ -110,6 +113,17 @@ function CourseNotFound() {
   )
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const course = await getCourse(params.id)
+  if (!course) {
+    return {
+      title: 'Course Not Found',
+      description: 'The requested course could not be found.'
+    }
+  }
+  return generateCourseMetadata(course)
+}
+
 export default async function CourseDetailPage({ params }: { params: { id: string } }) {
   const course = await getCourse(params.id)
   const user = await getCurrentUser()
@@ -118,9 +132,18 @@ export default async function CourseDetailPage({ params }: { params: { id: strin
     return <CourseNotFound />
   }
 
+  const structuredData = generateCourseStructuredData(course)
+
   return (
-    <Suspense fallback={<CourseSkeleton />}>
-      <CourseContent course={course} user={user} />
-    </Suspense>
+    <>
+      <Script
+        id="course-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <Suspense fallback={<CourseSkeleton />}>
+        <CourseContent course={course} user={user} />
+      </Suspense>
+    </>
   )
 }

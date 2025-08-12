@@ -5,6 +5,8 @@ export const dynamic = 'force-dynamic'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Search, Filter, Play, Clock, Users, Star, BookOpen, Zap, Target, TrendingUp } from 'lucide-react'
+import { generateCatalogStructuredData } from '@/lib/structured-data'
+import Script from 'next/script'
 
 interface Course {
   id: string
@@ -29,7 +31,7 @@ interface Course {
 // Sample course data for demonstration (fallback)
 const sampleCourses: Course[] = [
   {
-    id: 'sample-1',
+    id: 'cme7cx67g000413ofoxnp6dw4',
     title: 'AI in 1 Hour — Beginner Kickstart',
     description: 'Understand key concepts and ship your first AI mini‑project. Perfect for complete beginners who want to get started with AI quickly.',
     pricePaise: 0,
@@ -39,7 +41,17 @@ const sampleCourses: Course[] = [
     _count: { enrollments: 1250 }
   },
   {
-    id: 'sample-2',
+    id: 'cme7cx67f000213ofdsctqb86',
+    title: 'Prompt Engineering Mastery',
+    description: 'Master the art of creating effective prompts for AI tools. Learn advanced techniques to get better results from ChatGPT, Claude, and more.',
+    pricePaise: 299900,
+    published: true,
+    author: { name: 'GenEdge Academy' },
+    modules: [{ lectures: [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }] }],
+    _count: { enrollments: 1850 }
+  },
+  {
+    id: 'cme7cx67g000413ofoxnp6dw4',
     title: 'AI Tools to Save 10 Hours/Week',
     description: 'Email, docs, sheets, and research — streamlined with AI. Learn practical tools that immediately boost your productivity.',
     pricePaise: 0,
@@ -369,6 +381,10 @@ export default function CatalogPage() {
           </div>
         </div>
       </div>
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateCatalogStructuredData(courses)) }}
+      />
     </div>
   )
 }

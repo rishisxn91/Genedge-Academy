@@ -1,3 +1,5 @@
+import { PRICING_CONFIG } from '@/lib/pricing'
+
 export default function RefundPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -35,20 +37,20 @@ export default function RefundPage() {
               </section>
 
               <section className="mb-8">
-                <h2 className="heading-2 mb-4">2. 30-Day Money-Back Guarantee</h2>
+                <h2 className="heading-2 mb-4">2. {PRICING_CONFIG.refundWindow}-Day Money-Back Guarantee</h2>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
                   <h3 className="heading-3 text-green-800 mb-3">Our Promise to You</h3>
                   <p className="text-green-700">
-                    We offer a 30-day money-back guarantee for all new subscriptions and course purchases. If you're not completely satisfied with your learning experience within the first 30 days, we'll provide a full refund.
+                    We offer a {PRICING_CONFIG.refundWindow}-day money-back guarantee for all new subscriptions and course purchases. If you're not completely satisfied with your learning experience within the first {PRICING_CONFIG.refundWindow} days, we'll provide a full refund.
                   </p>
                 </div>
                 
                 <h3 className="heading-3 mb-3">2.1 Eligibility Requirements</h3>
                 <p className="text-gray-700 mb-4">
-                  To be eligible for a refund under our 30-day guarantee:
+                  To be eligible for a refund under our {PRICING_CONFIG.refundWindow}-day guarantee:
                 </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
-                  <li>Your request must be submitted within 30 days of your initial purchase</li>
+                  <li>Your request must be submitted within {PRICING_CONFIG.refundWindow} days of your initial purchase</li>
                   <li>You must not have completed more than 25% of any course content</li>
                   <li>You must not have downloaded or accessed premium resources</li>
                   <li>Your account must be in good standing with no violations of our terms</li>

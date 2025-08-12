@@ -1,3 +1,5 @@
+import { PRICING_CONFIG } from '@/lib/pricing'
+
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -161,7 +163,7 @@ export default function TermsPage() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Email:</strong> legal@genedge-academy.com<br />
+                    <strong>Email:</strong> {PRICING_CONFIG.contactEmail}<br />
                     <strong>Address:</strong> GenEdge Academy, Mumbai, Maharashtra, India<br />
                     <strong>Phone:</strong> +91-22-1234-5678
                   </p>

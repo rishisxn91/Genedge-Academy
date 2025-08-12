@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { PRICING_CONFIG, formatPrice, getSavingsAmount, getSavingsPercentage } from "@/lib/pricing";
 
 /**
  * GenEdge Academy – Conversion-Optimized Homepage (GMC-friendly)
@@ -11,18 +12,20 @@ import Link from "next/link";
  * - Mobile-first, accessible, Lighthouse-friendly
  */
 
-const SEATS_START = 200;
-
 export default function Home() {
-  // --- Scarcity: "seats left" (visual only; keep truthful if you wire real data) ---
-  const [seats, setSeats] = useState(SEATS_START);
+  // --- Scarcity: "seats left" (feature flag controlled) ---
+  const [seats, setSeats] = useState(PRICING_CONFIG.scarcity.seatsLeft || 0);
   useEffect(() => {
+    if (!PRICING_CONFIG.scarcity.enabled) return;
     const id = setInterval(() => setSeats((n) => (n > 12 ? n - Math.floor(Math.random() * 3) : n)), 15000);
     return () => clearInterval(id);
   }, []);
 
-  // --- Countdown to end of offer (midnight IST next Sunday) ---
+  // --- Countdown to end of offer (feature flag controlled) ---
   const end = useMemo(() => {
+    if (PRICING_CONFIG.scarcity.countdownEnd) {
+      return new Date(PRICING_CONFIG.scarcity.countdownEnd);
+    }
     const now = new Date();
     const day = now.getDay(); // 0=Sun
     const daysToSun = (7 - day) % 7;
@@ -66,7 +69,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-16 pb-16 sm:pb-24">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-white/30 bg-white/10 px-2 sm:px-3 py-1 text-xs sm:text-sm/6">
-              Launch Offer • Bilingual (EN + HI) • Seats left: <strong aria-live="polite">{seats}</strong>
+              Launch Offer • Bilingual (EN + HI) {PRICING_CONFIG.scarcity.enabled && seats > 0 && `• Seats left: ${seats}`}
             </span>
             <h1 className="mt-4 sm:mt-6 text-balance text-2xl sm:text-4xl font-extrabold leading-tight md:text-6xl">
               AI Skills for Every Future — Learn, Apply, and Stay Ahead
@@ -90,9 +93,11 @@ export default function Home() {
               >
                 See Course Plans
               </Link>
-              <span className="text-center sm:text-left text-xs sm:text-sm opacity-90 mt-2 sm:mt-0 sm:ml-2">
-                Offer ends in <strong aria-live="polite">{remaining}</strong>
-              </span>
+              {PRICING_CONFIG.scarcity.enabled && (
+                <span className="text-center sm:text-left text-xs sm:text-sm opacity-90 mt-2 sm:mt-0 sm:ml-2">
+                  Offer ends in <strong aria-live="polite">{remaining}</strong>
+                </span>
+              )}
             </div>
 
             <dl className="mt-6 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-6 text-xs sm:text-sm opacity-95 sm:grid-cols-4">
@@ -325,7 +330,7 @@ export default function Home() {
                   Start Free
                 </Link>
                 <Link
-                  href="/course/ai-in-1-hour"
+                  href="/course/cme7cx67g000413ofoxnp6dw4"
                   className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-gray-300 px-4 hover:bg-gray-50 text-sm"
                 >
                   View Syllabus
@@ -360,7 +365,7 @@ export default function Home() {
       {/* PRICING – Decoy Effect (push Professional) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Simple, Transparent Pricing</h2>
-        <p className="mt-1 text-gray-600 text-center sm:text-left">No hidden charges. 7‑day refund policy.</p>
+        <p className="mt-1 text-gray-600 text-center sm:text-left">No hidden charges. {PRICING_CONFIG.refundWindow}‑day refund policy.</p>
         <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 lg:grid-cols-3">
           {/* Starter */}
           <Plan
@@ -379,8 +384,8 @@ export default function Home() {
           <Plan
             highlight
             name="Professional"
-            price="₹2,499"
-            badge="🔥 Most Popular — Save 30%"
+            price={formatPrice(PRICING_CONFIG.professional.pricePaise)}
+            badge={`🔥 Most Popular — Save ${getSavingsPercentage()}`}
             features={[
               "All 25+ courses",
               "Verified certificate",
@@ -408,6 +413,9 @@ export default function Home() {
         <p className="mt-4 text-sm text-gray-600 text-center sm:text-left">
           * Majority of learners pick <strong>Professional</strong> for best value. Prices inclusive of taxes; terms apply.
         </p>
+        <p className="mt-2 text-sm text-gray-600 text-center sm:text-left">
+          Contact: <a href={`mailto:${PRICING_CONFIG.contactEmail}`} className="text-indigo-600 hover:underline">{PRICING_CONFIG.contactEmail}</a>
+        </p>
       </section>
 
             {/* SOCIAL PROOF */}
@@ -433,7 +441,7 @@ export default function Home() {
           <div className="text-center md:text-left">
             <div className="text-base sm:text-lg font-extrabold">GenEdge Academy</div>
             <div className="text-xs sm:text-sm text-gray-600">
-              Transparent pricing • Secure checkout • 7‑day refunds
+              Transparent pricing • Secure checkout • {PRICING_CONFIG.refundWindow}‑day refunds
             </div>
           </div>
           <nav className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-5 text-xs sm:text-sm text-gray-700">
@@ -496,7 +504,7 @@ function Plan({
       >
         {cta.label}
       </Link>
-      <p className="mt-2 text-xs text-gray-500">No hidden charges. 7‑day refund policy.</p>
+      <p className="mt-2 text-xs text-gray-500">No hidden charges. {PRICING_CONFIG.refundWindow}‑day refund policy.</p>
     </div>
   );
 }

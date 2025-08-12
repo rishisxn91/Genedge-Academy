@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic'
 import { useState } from 'react'
 import Link from 'next/link'
 import { Check, Star, Users, Clock, Globe, Zap } from 'lucide-react'
+import { PRICING_CONFIG, formatPrice, getSavingsAmount, getSavingsPercentage } from '@/lib/pricing'
 
 const pricingPlans = [
   {
@@ -16,14 +17,14 @@ const pricingPlans = [
       'Basic prompt engineering',
       'Community support',
       'Certificate of completion',
-      '30-day money-back guarantee'
+      `${PRICING_CONFIG.refundWindow}-day money-back guarantee`
     ],
     popular: false,
     icon: Users
   },
   {
     name: 'Professional',
-    price: 2999,
+    price: PRICING_CONFIG.professional.price,
     description: 'Comprehensive learning for serious AI practitioners',
     features: [
       'Access to all courses',
@@ -33,7 +34,7 @@ const pricingPlans = [
       'Project portfolio',
       'Career guidance',
       'Lifetime access',
-      '30-day money-back guarantee'
+      `${PRICING_CONFIG.refundWindow}-day money-back guarantee`
     ],
     popular: true,
     icon: Star
@@ -50,7 +51,7 @@ const pricingPlans = [
       'Analytics dashboard',
       'API access',
       'White-label options',
-      '30-day money-back guarantee'
+      `${PRICING_CONFIG.refundWindow}-day money-back guarantee`
     ],
     popular: false,
     icon: Globe

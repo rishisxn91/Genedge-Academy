@@ -1,3 +1,5 @@
+import { PRICING_CONFIG } from '@/lib/pricing'
+
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -211,7 +213,7 @@ export default function PrivacyPage() {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
                     <strong>Data Protection Officer:</strong><br />
-                    <strong>Email:</strong> privacy@genedge-academy.com<br />
+                    <strong>Email:</strong> {PRICING_CONFIG.contactEmail}<br />
                     <strong>Address:</strong> GenEdge Academy, Mumbai, Maharashtra, India<br />
                     <strong>Phone:</strong> +91-22-1234-5678
                   </p>
